@@ -45,18 +45,24 @@
     [parser open:path];
     
     VideoPacket *vp = nil;
+    
     while(true) {
         vp = [parser nextPacket];
         if(vp == nil) {
             break;
         }
+        //第一次获得vp.size=77字节  00 00 00 01 06 xxxxxx		uint32_t nalSize = (uint32_t)(vp.size - 4);// nalSize = 77-4=73 转为16进制是0x49
+        //第二个获得vp.size=31字节  00 00 00 01 67 4D 40 1F E8 80 78 08 B4 D4 04 04 05 00 00 03 00 01 00 00 03 00 32 8F 18 31 12   nalSize = 31-4 = 27 转为16进制是0x1b
         
         uint32_t nalSize = (uint32_t)(vp.size - 4);
+        NSLog(@"%d",nalSize);
         uint8_t *pNalSize = (uint8_t *)(&nalSize);
+        
         vp.buffer[0] = *(pNalSize + 3);
         vp.buffer[1] = *(pNalSize + 2);
         vp.buffer[2] = *(pNalSize + 1);
         vp.buffer[3] = *(pNalSize);
+        NSLog(@"-----------------%0x %0x %0x %0x %0x",vp.buffer[0],vp.buffer[1],vp.buffer[2],vp.buffer[3],vp.buffer[4]);
         
         CVPixelBufferRef pixelBuffer = NULL;
         int nalType = vp.buffer[4] & 0x1F;
@@ -79,7 +85,6 @@
                 _pps = malloc(_ppsSize);
                 memcpy(_pps, vp.buffer + 4, _ppsSize);
                 break;
-                
             default:
                 NSLog(@"Nal type is B/P frame");
                 pixelBuffer = [self decode:vp];

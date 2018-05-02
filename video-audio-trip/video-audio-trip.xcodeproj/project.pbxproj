@@ -20,6 +20,10 @@
 		F51ACDA2207A3FF300871983 /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F51ACDA1207A3FF300871983 /* AAPLEAGLLayer.m */; };
 		F51ACDA5207A411600871983 /* VideoPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = F51ACDA4207A411600871983 /* VideoPacket.m */; };
 		F51ACDA8207A41AF00871983 /* VideoFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F51ACDA7207A41AF00871983 /* VideoFileParser.m */; };
+		F51B09962089AA120097B965 /* PlayAACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B09952089AA120097B965 /* PlayAACViewController.m */; };
+		F51B09992089AA230097B965 /* DecodeAACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B09982089AA230097B965 /* DecodeAACViewController.m */; };
+		F51B099B2089AA490097B965 /* abc.aac in Resources */ = {isa = PBXBuildFile; fileRef = F51B099A2089AA490097B965 /* abc.aac */; };
+		F51B099E2089ABD50097B965 /* AACPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F51B099D2089ABD50097B965 /* AACPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,13 @@
 		F51ACDA4207A411600871983 /* VideoPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPacket.m; sourceTree = "<group>"; };
 		F51ACDA6207A41AF00871983 /* VideoFileParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoFileParser.h; sourceTree = "<group>"; };
 		F51ACDA7207A41AF00871983 /* VideoFileParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoFileParser.m; sourceTree = "<group>"; };
+		F51B09942089AA120097B965 /* PlayAACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayAACViewController.h; sourceTree = "<group>"; };
+		F51B09952089AA120097B965 /* PlayAACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayAACViewController.m; sourceTree = "<group>"; };
+		F51B09972089AA230097B965 /* DecodeAACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecodeAACViewController.h; sourceTree = "<group>"; };
+		F51B09982089AA230097B965 /* DecodeAACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecodeAACViewController.m; sourceTree = "<group>"; };
+		F51B099A2089AA490097B965 /* abc.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = abc.aac; sourceTree = "<group>"; };
+		F51B099C2089ABD50097B965 /* AACPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AACPlayer.h; sourceTree = "<group>"; };
+		F51B099D2089ABD50097B965 /* AACPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AACPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +107,7 @@
 		F51ACD90207A338E00871983 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F51B099A2089AA490097B965 /* abc.aac */,
 				F51ACD91207A33A400871983 /* mtv.h264 */,
 			);
 			path = Resource;
@@ -104,6 +116,7 @@
 		F51ACD93207A3B5D00871983 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F51B09932089A9DB0097B965 /* DecodeAAC */,
 				F51ACD9F207A3FE300871983 /* H264DecodeDemo */,
 				F51ACD98207A3D3D00871983 /* Controller */,
 				F51ACD94207A3B6B00871983 /* Model */,
@@ -142,6 +155,19 @@
 				F51ACDA7207A41AF00871983 /* VideoFileParser.m */,
 			);
 			path = H264DecodeDemo;
+			sourceTree = "<group>";
+		};
+		F51B09932089A9DB0097B965 /* DecodeAAC */ = {
+			isa = PBXGroup;
+			children = (
+				F51B09942089AA120097B965 /* PlayAACViewController.h */,
+				F51B09952089AA120097B965 /* PlayAACViewController.m */,
+				F51B09972089AA230097B965 /* DecodeAACViewController.h */,
+				F51B09982089AA230097B965 /* DecodeAACViewController.m */,
+				F51B099C2089ABD50097B965 /* AACPlayer.h */,
+				F51B099D2089ABD50097B965 /* AACPlayer.m */,
+			);
+			path = DecodeAAC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +230,7 @@
 				F51ACD87207A334A00871983 /* LaunchScreen.storyboard in Resources */,
 				F51ACD92207A33A400871983 /* mtv.h264 in Resources */,
 				F51ACD84207A334A00871983 /* Assets.xcassets in Resources */,
+				F51B099B2089AA490097B965 /* abc.aac in Resources */,
 				F51ACD82207A334900871983 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,10 +243,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51ACDA2207A3FF300871983 /* AAPLEAGLLayer.m in Sources */,
+				F51B09962089AA120097B965 /* PlayAACViewController.m in Sources */,
 				F51ACD7F207A334900871983 /* ViewController.m in Sources */,
 				F51ACD97207A3B8800871983 /* YJExample.m in Sources */,
+				F51B099E2089ABD50097B965 /* AACPlayer.m in Sources */,
 				F51ACD9E207A3ED500871983 /* H264DecodeDemo.m in Sources */,
 				F51ACD8A207A334A00871983 /* main.m in Sources */,
+				F51B09992089AA230097B965 /* DecodeAACViewController.m in Sources */,
 				F51ACDA8207A41AF00871983 /* VideoFileParser.m in Sources */,
 				F51ACD9B207A3D4F00871983 /* TableViewController.m in Sources */,
 				F51ACD7C207A334900871983 /* AppDelegate.m in Sources */,

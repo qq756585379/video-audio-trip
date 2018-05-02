@@ -7,6 +7,8 @@
 //
 
 #import "TableViewController.h"
+#import "PlayAACViewController.h"
+#import "DecodeAACViewController.h"
 #import "H264DecodeDemo.h"
 #import "YJExample.h"
 
@@ -24,7 +26,15 @@
         [self.navigationController pushViewController:[H264DecodeDemo new] animated:YES];
     }];
     
-    self.examples = @[h264example];
+    YJExample *playAACExample = [YJExample exampleWithTitle:@"playAACExample" block:^{
+        [self.navigationController pushViewController:[PlayAACViewController new] animated:YES];
+    }];
+    
+    YJExample *decodeAACExample = [YJExample exampleWithTitle:@"decodeAACExample" block:^{
+        [self.navigationController pushViewController:[DecodeAACViewController new] animated:YES];
+    }];
+    
+    self.examples = @[h264example,playAACExample,decodeAACExample];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.tableView reloadData];

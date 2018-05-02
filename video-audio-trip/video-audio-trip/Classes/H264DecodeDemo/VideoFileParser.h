@@ -12,7 +12,7 @@
 @interface VideoFileParser : NSObject
 
 -(VideoPacket *)nextPacket;
--(BOOL)open:(NSString *)fileName;
+-(void)open:(NSString *)fileName;
 -(void)close;
 
 @end
